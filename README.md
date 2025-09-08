@@ -1,53 +1,69 @@
-# Text Summarizer using LLM (T5-Small)
+# 📘 Text Summarizer using LLMs
 
-## Overview
-
-This project is a **text summarization app** built using **Python**, **Hugging Face Transformers**, and **Streamlit**. It leverages the **T5-Small model** to generate concise summaries of input articles or text.
-
-The app runs locally or can be deployed on **Streamlit Cloud** for easy web access.
-Deployed App : **[Streamlit Cloud](https://textsummarizerllm.streamlit.app/)**
+This project demonstrates a **text summarization tool** built with Hugging Face Transformers and Streamlit.  
+It supports both **direct text summarization** and **document upload (PDF/DOCX) summarization**.
 
 ---
 
-## Features
+## 🚀 Project Features
+- **Text Summarizer (`app.py`)**  
+  - Simple Streamlit app.  
+  - Uses **`t5-small`** for lightweight, local testing.  
 
-* Summarize articles, paragraphs, or any text input.
-* Lightweight summarization using **T5-Small** (no large models required).
-* Easy-to-use web interface with **Streamlit**.
-* Can handle moderately long texts with chunking (optional enhancement).
+- **Document Summarizer (`document_summarizer.py`)**  
+  - Upload **PDF/DOCX** files and get extracted summaries.  
+  - Supports **dynamic summary length** (longer docs → longer summaries).  
+  - Uses **`t5-base`** for more accurate results when deployed.  
 
 ---
 
+## 📂 Project Structure
+```
+Text\_Summarizer\_LLM/
+│── app.py                  # Basic text summarizer
+│── document\_summarizer.py  # PDF/DOCX summarizer (deploy-ready)
+│── summarizer.py           # (Optional) helper functions
+│── requirements.txt        # Dependencies
+│── README.md               # Documentation
+│── LICENSE                 # MIT License
+│── .gitignore
+│
+├── docs/
+│   └── llm\_cheatsheet.pdf  # (optional guide)
+└── examples/
+└── sample\_text.txt
+└── sample\_summary.txt
+```
+---
 ## Installation
 
-1. **Clone the repository**
-
+1. Clone the repo:
 ```bash
-git clone git@github.com:Dhayalan-Forge/Text_Summarizer_LLM.git
+git clone <your-repo-link>
 cd Text_Summarizer_LLM
 ```
 
-2. **Create a virtual environment**
+2. Create virtual environment:
 
 ```bash
 python -m venv venv
 ```
 
-3. **Activate the virtual environment**
+3. Activate environment:
 
-* Windows:
+* **Windows (PowerShell)**:
 
-```bash
-venv\Scripts\activate
+```powershell
+.\venv\Scripts\activate
 ```
 
-* Linux/macOS:
+* **Linux/macOS**:
 
 ```bash
 source venv/bin/activate
 ```
 
-4. **Install dependencies**
+4. Install dependencies:
 
 ```bash
 pip install -r requirements.txt
@@ -55,46 +71,51 @@ pip install -r requirements.txt
 
 ---
 
-## Usage
+## ▶️ Running the Apps
 
-### Run locally
-
-```bash
-python app.py
-```
-
-or using Streamlit:
+### 1. Run Basic Text Summarizer (local)
 
 ```bash
 streamlit run app.py
 ```
 
-* Enter your text in the input box and click **Summarize**.
-* The summary will appear below the input.
+* Uses **`t5-small`** (fast, lightweight).
+
+### 2. Run Document Summarizer (local or deployed)
+
+```bash
+streamlit run document_summarizer.py
+```
+
+* Locally → still works with **`t5-small`** if you want.
+* Deployment (Streamlit Cloud) → switches to **`t5-base`** automatically for better accuracy.
 
 ---
 
-## Deployment
+## 📌 Requirements.txt
 
-* This app can be deployed on **[Streamlit Cloud](https://share.streamlit.io/)**.
-* Simply connect your GitHub repo and set `app.py` as the main file.
-* No API keys are required if using the local **T5-Small model**.
-
----
-
-## Folder Structure
+Make sure this file contains:
 
 ```
-Text_Summarizer_LLM/
-│
-├─ app.py            # Streamlit app
-├─ summarizer.py     # Local testing script
-├─ requirements.txt  # Python dependencies
-├─ .gitignore        # Ignored files (.env, venv)
-├─ README.md         # Project documentation
+transformers
+torch
+streamlit
+PyPDF2
+python-docx
 ```
+
 ---
 
-## License
+## 🌍 Deployment
 
-This project is licensed under the **MIT License**.
+* Push this repo to GitHub.
+* Deploy directly on **Streamlit Cloud**.
+* For best results, `document_summarizer.py` will use **`t5-base`** (≈220MB).
+
+---
+
+## 📎 Live Demo
+
+👉 [Streamlit Deployed App](https://textsummarizerllm.streamlit.app/)
+
+---
