@@ -39,7 +39,7 @@ Text\_Summarizer\_LLM/
 
 1. Clone the repo:
 ```bash
-git clone <your-repo-link>
+git clone https://github.com/Dhayalan-Forge/Text_Summarizer_LLM.git
 cd Text_Summarizer_LLM
 ```
 
