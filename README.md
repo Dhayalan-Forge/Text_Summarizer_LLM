@@ -5,6 +5,7 @@
 This project is a **text summarization app** built using **Python**, **Hugging Face Transformers**, and **Streamlit**. It leverages the **T5-Small model** to generate concise summaries of input articles or text.
 
 The app runs locally or can be deployed on **Streamlit Cloud** for easy web access.
+Deployed App : **[Streamlit Cloud](https://textsummarizerllm.streamlit.app/)**
 
 ---
 
@@ -70,14 +71,6 @@ streamlit run app.py
 
 * Enter your text in the input box and click **Summarize**.
 * The summary will appear below the input.
-
-### Using `summarizer.py` (Optional)
-
-* Quickly test summarization in terminal:
-
-```bash
-python summarizer.py
-```
 
 ---
 
