@@ -94,7 +94,7 @@ To deploy this app:
 
 ## 🔗 Live Demo
 
-👉 [Streamlit App](https://textsummarizerllm.streamlit.app/)
+👉 [Streamlit App](https://textsummarizerllm-xjwjowyx9fi8nchj26fxzv.streamlit.app/)
 
 -----
 
