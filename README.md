@@ -1,121 +1,103 @@
-# 📘 Text Summarizer using LLMs
+# 📝 Unified Text & Document Summarizer
 
-This project demonstrates a **text summarization tool** built with Hugging Face Transformers and Streamlit.  
-It supports both **direct text summarization** and **document upload (PDF/DOCX) summarization**.
+A summarization app built with **Python**, **Hugging Face Transformers**, and **Streamlit**. It allows you to either **enter text manually** or **upload a PDF/DOCX file** and get a concise summary. The app uses **T5 models** (`t5-small` for local testing, `t5-base` for deployment) to generate summaries.
 
 ---
 
-## 🚀 Project Features
-- **Text Summarizer (`app.py`)**  
-  - Simple Streamlit app.  
-  - Uses **`t5-small`** for lightweight, local testing.  
+## 🚀 Features
 
-- **Document Summarizer (`document_summarizer.py`)**  
-  - Upload **PDF/DOCX** files and get extracted summaries.  
-  - Supports **dynamic summary length** (longer docs → longer summaries).  
-  - Uses **`t5-base`** for more accurate results when deployed.  
+* ✍️ **Text Summarization**: Paste or type any text to get a summary.
+* 📄 **Document Summarization**: Upload PDFs or Word docs for summarization.
+* ⚡ **Chunking Support**: Handles long documents by splitting them into smaller parts.
+* 🔄 **Dynamic Length**: Adjusts summary size based on input length.
+* 🌐 **Deployable on Streamlit Cloud**.
 
 ---
 
 ## 📂 Project Structure
-```
+
+````
+
 Text\_Summarizer\_LLM/
-│── app.py                  # Basic text summarizer
-│── document\_summarizer.py  # PDF/DOCX summarizer (deploy-ready)
-│── summarizer.py           # (Optional) helper functions
-│── requirements.txt        # Dependencies
-│── README.md               # Documentation
-│── LICENSE                 # MIT License
-│── .gitignore
-│
-├── docs/
-│   └── llm\_cheatsheet.pdf  # (optional guide)
-└── examples/
-└── sample\_text.txt
-└── sample\_summary.txt
-```
----
-## Installation
+├── summarizer\_app.py     \# Unified app (text + document summarizer)
+├── requirements.txt      \# Project dependencies
+├── README.md             \# Documentation
+├── LICENSE               \# MIT License
+├── .gitignore
+└── .devcontainer/        \# (Optional) Dev container configuration
 
-1. Clone the repo:
-```bash
-git clone https://github.com/Dhayalan-Forge/Text_Summarizer_LLM.git
-cd Text_Summarizer_LLM
-```
-
-2. Create virtual environment:
-
-```bash
-python -m venv venv
-```
-
-3. Activate environment:
-
-* **Windows (PowerShell)**:
-
-```powershell
-.\venv\Scripts\activate
-```
-
-* **Linux/macOS**:
-
-```bash
-source venv/bin/activate
-```
-
-4. Install dependencies:
-
-```bash
-pip install -r requirements.txt
-```
+````
 
 ---
 
-## ▶️ Running the Apps
+## ⚙️ Setup Instructions
 
-### 1. Run Basic Text Summarizer (local)
+1.  **Clone the repository:**
+    ```bash
+    git clone <your-repo-link>
+    cd Text_Summarizer_LLM
+    ```
+2.  **Create a virtual environment:**
+    ```bash
+    python -m venv venv
+    ```
+3.  **Activate the environment:**
+    * **Windows (PowerShell):**
+        ```powershell
+        .\venv\Scripts\activate
+        ```
+    * **Linux/macOS:**
+        ```bash
+        source venv/bin/activate
+        ```
+4.  **Install dependencies:**
+    ```bash
+    pip install -r requirements.txt
+    ```
+
+---
+
+## ▶️ Run the App
+
+Start the unified summarizer with this command:
 
 ```bash
-streamlit run app.py
+streamlit run summarizer_app.py
+````
+
+  * Choose **"✍️ Enter Text"** to summarize text directly.
+  * Choose **"📄 Upload Document"** to upload a PDF or DOCX file.
+
+-----
+
+## 📌 Requirements (`requirements.txt`)
+
+```ini
+streamlit==1.49.1
+transformers==4.56.1
+torch==2.8.0
+PyPDF2==3.0.1
+python-docx==1.1.2
 ```
 
-* Uses **`t5-small`** (fast, lightweight).
+-----
 
-### 2. Run Document Summarizer (local or deployed)
+## 🌐 Deployment
 
-```bash
-streamlit run document_summarizer.py
-```
+To deploy this app:
 
-* Locally → still works with **`t5-small`** if you want.
-* Deployment (Streamlit Cloud) → switches to **`t5-base`** automatically for better accuracy.
+1.  Push the repository to GitHub.
+2.  Deploy directly on Streamlit Cloud.
+3.  The deployed version automatically uses **`t5-base`** for higher accuracy.
 
----
+-----
 
-## 📌 Requirements.txt
+## 🔗 Live Demo
 
-Make sure this file contains:
+👉 [Streamlit App](https://textsummarizerllm.streamlit.app/)
 
-```
-transformers
-torch
-streamlit
-PyPDF2
-python-docx
-```
+-----
 
----
+## 📜 License
 
-## 🌍 Deployment
-
-* Push this repo to GitHub.
-* Deploy directly on **Streamlit Cloud**.
-* For best results, `document_summarizer.py` will use **`t5-base`** (≈220MB).
-
----
-
-## 📎 Live Demo
-
-👉 [Streamlit Deployed App](https://textsummarizerllm.streamlit.app/)
-
----
+This project is licensed under the MIT License see the `LICENSE` file for details.
